@@ -56,7 +56,7 @@ button {
 
 .game-screen-header,
 .game-screen-footer {
-  height: 80px;
+  min-height: 80px;
   flex-shrink: 0;
 }
 
