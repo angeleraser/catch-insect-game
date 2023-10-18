@@ -223,9 +223,15 @@ button {
   display: none;
   justify-content: center;
   align-items: center;
-
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   left: 0;
   top: 0;
+}
+
+@media screen and (max-width: 460px) {
+  .game-screen {
+    min-height: auto;
+    max-height: max-content;
+  }
 }
