@@ -65,10 +65,12 @@ function getScreen(name) {
 
 function showScreen(name) {
   getScreen(name).classList.add("show");
+  getScreen(name).classList.remove("hide");
 }
 
 function hideScreen(name) {
   getScreen(name).classList.add("hide");
+  getScreen(name).classList.remove("show");
 }
 
 function getRandomNumber(max) {
