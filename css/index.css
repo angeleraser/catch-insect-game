@@ -58,7 +58,6 @@ button {
 }
 
 .game-screen-content {
-  flex: 100%;
   height: calc(100% - 160px);
   padding: 0 20px;
 }
