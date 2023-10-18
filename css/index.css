@@ -59,7 +59,7 @@ button {
 
 .game-screen-content {
   flex: 100%;
-  height: calc(var(--screen-height) - 160px);
+  height: calc(100% - 160px);
   padding: 0 20px;
 }
 
@@ -228,10 +228,4 @@ button {
   position: fixed;
   left: 0;
   top: 0;
-}
-
-@media screen and (max-width: 460px) {
-  :root {
-    --screen-height: 97vh;
-  }
 }
