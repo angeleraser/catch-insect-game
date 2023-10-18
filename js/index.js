@@ -64,7 +64,7 @@ function getScreen(name) {
 }
 
 function showScreen(name) {
-  getScreen(name).classList.remove("hide");
+  getScreen(name).classList.add("show");
 }
 
 function hideScreen(name) {
@@ -148,8 +148,15 @@ function catchBoardInsect(target) {
   updateGameScore(state.score + 1);
 }
 
-playGameBtn.addEventListener("click", () => hideScreen(screens.MAIN));
-gameBackBtn.addEventListener("click", () => showScreen(screens.MAIN));
+playGameBtn.addEventListener("click", () => {
+  hideScreen(screens.MAIN);
+  showScreen(screens.CHOOSE);
+});
+
+gameBackBtn.addEventListener("click", () => {
+  showScreen(screens.MAIN);
+  hideScreen(screens.CHOOSE);
+});
 
 retryGameBtn.addEventListener("click", function () {
   gameResultModalOverlay.style.display = "none";
@@ -159,9 +166,12 @@ retryGameBtn.addEventListener("click", function () {
 gameInsectOptions.addEventListener("click", function ({ target }) {
   if (!target.dataset.option) return;
   hideScreen(screens.CHOOSE);
+  showScreen(screens.GAME);
   startGame(target.dataset.option);
 });
 
 gameBoard.addEventListener("click", function ({ target }) {
   if (target.dataset.insect) catchBoardInsect(target);
 });
+
+showScreen(screens.MAIN);

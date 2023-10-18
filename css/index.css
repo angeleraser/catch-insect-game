@@ -28,13 +28,12 @@ button {
   width: 100vw;
   min-width: 360px;
   height: var(--screen-height);
-  overflow: hidden;
   font-family: var(--font-family);
   font-size: var(--font-size);
 }
 
 .game-screen {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -42,6 +41,10 @@ button {
   height: 100%;
   min-width: 360px;
   transition: 0.3s margin-top;
+}
+
+.game-screen.show {
+  display: flex;
 }
 
 .game-screen-header,
@@ -175,7 +178,7 @@ button {
 }
 
 .game-screen.hide {
-  margin-top: calc(var(--screen-height) * -1);
+  display: none;
 }
 
 .game-screen-content[data-game-board] {
