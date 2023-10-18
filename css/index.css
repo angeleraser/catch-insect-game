@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+@import url("./reset.min.css");
+
+:root {
+  --blue: #516dff;
+  --white: #fff;
+  --font-family: "Press Start 2P", sans-serif;
+  --font-size: 14px;
+  --h1: calc(var(--font-size) * 3);
+  --h2: calc(var(--font-size) * 2.5);
+  --h3: calc(var(--font-size) * 1.5);
+  --h4: calc(var(--font-size) * 1);
+  --h5: calc(var(--font-size) * 0.5);
+}
+
+button {
+  font-family: var(--font-family);
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.app {
+  background-color: var(--blue);
+  color: var(--white);
+  width: 100%;
+  min-width: 360px;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+}
+
+.game-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  min-width: 360px;
+  transition: 0.3s margin-top;
+}
+
+.game-screen-header,
+.game-screen-footer,
+.game-screen-content {
+  width: 100%;
+  padding: 20px;
+}
+
+.game-screen-header,
+.game-screen-footer {
+  min-height: 80px;
+  flex-shrink: 0;
+}
+
+.game-screen-content {
+  flex: 100%;
+  padding: 0 20px;
+}
+
+.game-title {
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.game-title.h1 {
+  font-size: var(--h1);
+}
+
+.game-title.h2 {
+  font-size: var(--h2);
+}
+
+.game-title.h3 {
+  font-size: var(--h3);
+}
+
+.game-title.h4 {
+  font-size: var(--h4);
+}
+
+.game-title.h5 {
+  font-size: var(--h5);
+}
+
+.game-btn {
+  outline: none;
+  color: var(--blue);
+  background-color: var(--white);
+  padding: 14px;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.game-btn:hover {
+  color: var(--white);
+  background-color: var(--blue);
+  border-color: var(--white);
+}
+
+.game-screen[data-screen="main"] .game-screen-content,
+.game-screen[data-screen="choose"] .game-screen-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+
+.game-screen[data-screen="game"] .game-screen-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.game-screen[data-screen="game"] .game-screen-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.game-insect-options {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.insect-option-btn {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  padding: 14px;
+  color: var(--white);
+  cursor: pointer;
+  border: 2px solid var(--white);
+  width: clamp(100px, 10vw, 360px);
+  height: clamp(100px, 10vw, 360px);
+}
+
+.insect-option-btn .h4 {
+  font-size: 85%;
+}
+
+.insect-option-btn > * {
+  pointer-events: none;
+}
+
+.insect-option-btn:hover {
+  background-color: var(--white);
+  color: var(--blue);
+}
+
+.insect-option-btn img {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+}
+
+.game-elapsed-time,
+.game-score {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.game-screen.hide {
+  margin-top: -100vh;
+}
+
+.game-screen-content[data-game-board] {
+  position: relative;
+}
+
+.game-board-insect {
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+  width: clamp(80px, 10%, 120px);
+  height: clamp(80px, 10%, 120px);
+  opacity: 1;
+  scale: 0;
+  transition-duration: 0.3s;
+  transition-property: scale, opacity;
+  animation: show 0.1s ease-in forwards;
+  position: absolute;
+}
+
+@keyframes show {
+  to {
+    scale: 1;
+  }
+}
+
+.game-board-insect > * {
+  pointer-events: none;
+}
+
+.game-board-insect.catched {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.game-result-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.game-result-modal-overlay {
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  left: 0;
+  top: 0;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>Catch The Insect</title>
+  </head>
+  <body class="app">
+    <div data-screen="main" class="game-screen">
+      <div class="game-screen-content">
+        <div class="game-title h2">Catch The Insect</div>
+        <button id="play-game-btn" class="game-btn">Play Game</button>
+      </div>
+    </div>
+
+    <div data-screen="choose" class="game-screen">
+      <div class="game-screen-header">
+        <button id="game-back-btn" class="game-btn">Back</button>
+      </div>
+      <div class="game-screen-content">
+        <div class="game-title h2">What is your "favorite" insect?</div>
+
+        <ul id="game-insect-options" class="game-insect-options">
+          <li>
+            <button data-option="fly" class="insect-option-btn">
+              <div class="game-title h4">Fly</div>
+              <img src="./assets/fly.png" alt="fly" />
+            </button>
+          </li>
+
+          <li>
+            <button data-option="mosquito" class="insect-option-btn">
+              <div class="game-title h4">Mosquito</div>
+              <img src="./assets/mosquito.png" alt="mosquito.png" />
+            </button>
+          </li>
+
+          <li>
+            <button data-option="spider" class="insect-option-btn">
+              <div class="game-title h4">Spider</div>
+              <img src="./assets/spider.png" alt="spider.png" />
+            </button>
+          </li>
+
+          <li>
+            <button data-option="roach" class="insect-option-btn">
+              <div class="game-title h4">Roach</div>
+              <img src="./assets/roach.png" alt="roach.png" />
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div data-screen="game" class="game-screen">
+      <div class="game-screen-header">
+        <div class="game-elapsed-time">
+          <div class="game-title h3">Time:</div>
+          <div class="game-title h3" id="game-elapsed-time-value">00:00</div>
+        </div>
+
+        <div class="game-score">
+          <div class="game-title h3">Score:</div>
+          <div id="game-score-value" class="game-title h3">0</div>
+        </div>
+      </div>
+
+      <div data-game-board class="game-screen-content"></div>
+
+      <div id="game-result-modal-overlay" class="game-result-modal-overlay">
+        <div class="game-result-modal">
+          <div class="game-title h3">
+            Your Score:
+            <span id="game-result-value" class="game-result-value">0</span>
+          </div>
+
+          <button id="retry-game-btn" class="game-btn">Retry</button>
+        </div>
+      </div>
+
+      <div class="game-screen-footer">
+        <button
+          onclick="confirm('Are you sure you want to quit?') ? location.reload() : undefined"
+          class="game-btn"
+        >
+          Quit
+        </button>
+      </div>
+    </div>
+
+    <audio id="smash-bug-sound" src="./assets/smash-bug-sound.mp3"></audio>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
